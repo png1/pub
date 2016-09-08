@@ -1,6 +1,16 @@
+## :point_right: **https://github.com/png1/pub/wiki**
+
 A wiki of notes, focussing on **Python** and **Javascript** for **database/web** applications...
 
-:point_right: **https://github.com/png1/pub/wiki**
+## Keywords
+
+| | | |
+| --- | --- | --- |
+| ``OOP`` | | ``frameworks`` ``libraries`` ``MVC`` |
+| ``python`` |  | ``flask`` ``django`` ... |
+| ``javascript`` | ``node`` | ``lodash`` ``jquery`` ... |
+| ``CSS`` | | ``bootstrap`` |
+| | | ``JSON`` ``CSV`` ``XML`` |
 
 ----
 
