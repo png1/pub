@@ -1,6 +1,6 @@
-- [MODEL-projects.py](MODEL-projects.py)
+- [DB-Table-projects.py](DB-Table-projects.py)
 
-- [CTRL.php](CTRL.php)
-- [VIEW-edit.php](VIEW-edit.php)
+- [APP-Ctrl.php](APP-Ctrl.php)
+- [APP-Ctrl.php](APP-Ctrl.php)
 
-- [CKEditor-config.js](CKEditor-config.js)
+- [LIB-CKEditor-config.js](LIB-CKEditor-config.js)
