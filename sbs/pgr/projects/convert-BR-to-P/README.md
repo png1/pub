@@ -3,7 +3,7 @@
 ---
 
 - [APP-Ctrl.php](APP-Ctrl.php)
-- [APP-View-edit.php](APP-View-edit.php)
+- [APP-View-edit.md](APP-View-edit.md)
 
 ---
 
