@@ -35,7 +35,7 @@ BR_counts = [len(rgex_BR.findall(r[fld]))  for r in Recs  for fld in Fields]
 ## !! [In the APP, need to change 'subjectarea' from a *textarea* to *rich-text editor*]
 for r in Recs:
   fld = 'subjectarea'
-  r[fld] = u'<P>' + r[fld] + '</P>'
+  r[fld] = ''.join([u'<P>', r[fld], '</P>'])
 
 
 #######################################
@@ -49,14 +49,16 @@ for r in Recs:
 
 
 ## build a 'template' from Fields
+## !! NOTE: double braces http://stackoverflow.com/questions/5466451/how-can-i-print-a-literal-characters-in-python-string-and-also-use-format
 Fields_TMPL = ",\n".join([
-  '`' + fld + '`' + '="{' + fld + '}"'  for fld in Fields
+  '`{0}`="{{{0}}}"'.format(fld)  for fld in Fields
 ])
 
 ## generate SQL
 ## !! NOTE: 'u' (for *Unicode* chars in the JSON data)
+## !! NOTE: double braces
 SQL = "\n".join([
-  (u'UPDATE _DB_TABLE_ SET ' + Fields_TMPL + ' WHERE id={id};').format(**r)
+  u'UPDATE _DB_TABLE_ SET {0} WHERE id={{id}};'.format(Fields_TMPL).format(**r)
   for r in Recs
 ])
 
