@@ -4,7 +4,7 @@ import string
 
 
 #############################
-## heuristic/'scoring' Method
+## heuristic/'scoring' Method -- part of {heuristic_method}
 #############################
 class EmailAddr(object):
   ## !! NOTE: in order of *increasing* score
@@ -75,13 +75,13 @@ for r in RECS:
   email_OC = oc['Email Address']  if 'Email Address' in oc  else ''
   email_UX = ux['email']  if 'email' in ux  else ''
 
-  email_MAX = max(
+  email_MAX = max(  ## part of {heuristic_method}
     [ {'email':em, 'score': EmailAddr.getScore(em)}  for em in [email_OC, email_UX] ],
     key=lambda x: x['score'] 
   )['email']
 
-  MAXscore = EmailAddr.getScore(email_MAX)
-  RECscore = EmailAddr.getScore(email_REC)
+  MAXscore = EmailAddr.getScore(email_MAX) ## part of {heuristic_method}
+  RECscore = EmailAddr.getScore(email_REC) ## part of {heuristic_method}
 
   Results.append({
     'pnID': r['pnID'],
@@ -100,7 +100,8 @@ for r in RECS:
     'MAXscore__LT__RECscore': 'Y'  if MAXscore < RECscore  else '',
 
     'email_DIFF': 'Y'  if not strCmpNORM(email_REC, email_MAX)  else '',
-
+    
+    ## part of {heuristic_method}
     'email_UPDATE': email_MAX  if MAXscore >= 0  else email_REC # // don't update if BLANK!
   })
 
