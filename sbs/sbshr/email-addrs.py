@@ -104,6 +104,7 @@ for r in RECS:
     'email_UPDATE': email_MAX  if MAXscore >= 0  else email_REC # // don't update if BLANK!
   })
 
+Results = sorted(Results, key=lambda r: (r['surname'].upper(), r['firstname'].upper()))
 
 
 ## output Results to JSON file
