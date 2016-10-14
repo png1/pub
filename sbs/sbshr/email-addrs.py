@@ -4,7 +4,7 @@ import string
 
 
 #############################
-## heuristic/'scoring' Method -- part of {heuristic_method}
+## heuristic/'scoring' Method -- also see: {heuristic_method}
 #############################
 class EmailAddr(object):
   ## !! NOTE: in order of *increasing* score
@@ -20,6 +20,18 @@ class EmailAddr(object):
     if len(s.strip()) == 0:  return -1 # -1 if s is BLANK
     _sc = [idx  for idx, emDom in enumerate(EmailAddr.Domains)  if emDom in s]
     return _sc[0]  if len(_sc) > 0  else EmailAddr.Domains.index('~~OTHER~~')
+
+  @staticmethod
+  def getEmail_MAX(listEmails):
+    return max(
+      [{'email':em, 'score': EmailAddr.getScore(em)}  for em in listEmails],
+      key=lambda x: x['score']
+    )['email']
+
+  @staticmethod
+  def getEmail_UPDATE(email_OLD, email_NEW):
+    # i.e. don't update if BLANK!
+    return email_NEW  if EmailAddr.getScore(email_NEW) >= 0  else email_OLD
 
 
 ## normalise Strings; then compare them 
@@ -73,11 +85,8 @@ for r in RECS:
   email_REC = r['email']
   email_OC = oc['Email Address']  if 'Email Address' in oc  else ''
   email_UX = ux['email']  if 'email' in ux  else ''
-
-  email_MAX = max(  ## part of {heuristic_method}
-    [ {'email':em, 'score': EmailAddr.getScore(em)}  for em in [email_OC, email_UX] ],
-    key=lambda x: x['score'] 
-  )['email']
+  
+  email_MAX = EmailAddr.getEmail_MAX([email_OC, email_UX]) ## part of {heuristic_method}
 
   MAXscore = EmailAddr.getScore(email_MAX) ## part of {heuristic_method}
   RECscore = EmailAddr.getScore(email_REC) ## part of {heuristic_method}
@@ -99,9 +108,8 @@ for r in RECS:
     'MAXscore__LT__RECscore': 'Y'  if MAXscore < RECscore  else '',
 
     'email_DIFF': 'Y'  if not strCmpNORM(email_REC, email_MAX)  else '',
-    
-    ## part of {heuristic_method}
-    'email_UPDATE': email_MAX  if MAXscore >= 0  else email_REC # // don't update if BLANK!
+
+    'email_UPDATE': EmailAddr.getEmail_UPDATE(email_REC, email_MAX) ## part of {heuristic_method}
   })
 
 Results = sorted(Results, key=lambda r: (r['surname'].upper(), r['firstname'].upper()))
