@@ -13,12 +13,11 @@ class EmailAddr(object):
   @_STAFF_
   ~~OTHER~~
   @_ALIAS_
-  '''.strip().split()
+  '''.split()
 
   @staticmethod
   def getScore(s):
-    if len(s.strip()) == 0:  # -1 if s is BLANK
-      return -1
+    if len(s.strip()) == 0:  return -1 # -1 if s is BLANK
     _sc = [idx  for idx, emDom in enumerate(EmailAddr.Domains)  if emDom in s]
     return _sc[0]  if len(_sc) > 0  else EmailAddr.Domains.index('~~OTHER~~')
 
@@ -131,7 +130,7 @@ MAXscore__EQ__RECscore
 MAXscore__LT__RECscore
 email_DIFF
 email_UPDATE
-'''.strip().split()
+'''.split()
 
 ## !! NOTE: BINARY 'b' mode ~ http://stackoverflow.com/questions/3191528/csv-in-python-adding-an-extra-carriage-return
 with open('EmailAddr.csv','wb') as f:
