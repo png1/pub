@@ -51,3 +51,13 @@ gunicorn -w 3 --bind localhost:8550 flask_test:application
 ```bash
 wget http://localhost:8550/flask_test -O - | less
 ```
+
+- [ ] Need to modify 'firewall' (re: ports) for httpS ??
+
+```bash
+# Run GUNICORN
+gunicorn -w 3 --certfile=/etc/pki/tls/certs/___.crt --keyfile=/etc/pki/tls/private/___key --bind sec___ flask_test:application
+
+# CHECK
+wget --no-check-certificate https://sec___:8000/flask_test -O - | less
+```
