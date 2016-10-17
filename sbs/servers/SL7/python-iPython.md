@@ -31,3 +31,11 @@ Installing collected packages: pygments, setuptools, backports.shutil-get-termin
   Running setup.py install for simplegeneric ... done
 Successfully installed backports.shutil-get-terminal-size-1.0.0 enum34-1.1.6 ipython-5.1.0 ipython-genutils-0.1.0 pathlib2-2.1.0 pexpect-4.2.1 pickleshare-0.7.4 prompt-toolkit-1.0.7 ptyprocess-0.5.1 pygments-2.1.3 setuptools-28.3.0 simplegeneric-0.8.1 six-1.10.0 traitlets-4.3.1 wcwidth-0.1.7
 ```
+
+----
+
+- ``History`` file
+
+```bash
+ls ~/.ipython/profile_default/history.sqlite
+```
