@@ -100,15 +100,18 @@ __LIB__/mathjax/MathJax.js
 
 :mag:  ``MathJax.Hub.Queue``
 
-http://stackoverflow.com/questions/7926233/display-mathjax-dynamically-only-when-there-are-delimiters
-- http://jsfiddle.net/Zky72/2/
+- http://stackoverflow.com/questions/7926233/display-mathjax-dynamically-only-when-there-are-delimiters
+    - http://jsfiddle.net/Zky72/2/
 
 > `` MathJax.Hub.Queue(["Typeset", MathJax.Hub, "MathOutput"]); ``
 
 #### Example
 
 - http://jsfiddle.net/Zky72/209/
-    - (Can type either **TeX** or **MathML**)
+
+Either **TeX** or **MathML** can be typed.
+
+(**TeX** needs to be enclosed in ``$``, e.g. ``$ x^2 + y^3 $``) 
 
 #### Method
 
