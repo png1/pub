@@ -118,7 +118,7 @@ Either **TeX** or **MathML** can be typed.
 ```javascript
 $(document).ready(function() {
 
-  // get HTML elements/tags ('DIV's whose id starts with "fb" and have a MATH elt/tag)
+  // get HTML elements/tags ('DIV's whose id starts with "fb" and contains a MATH elt/tag)
   // !! :has() is succinct, but NOT portable ~ https://api.jquery.com/has-selector/
   var elts = $('div[id^="fb"]:has(math)');
   
