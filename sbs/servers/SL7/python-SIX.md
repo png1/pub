@@ -8,7 +8,15 @@ To detect **'string'** types, but without using the ``six`` library:
 ```python
 import types
 
-isinstance(s, types.StringTypes)
+def isString(s):  return isinstance(s, types.StringTypes)
+```
+
+Using the ``six`` library:
+
+```python
+import six
+
+def isString(s):  return isinstance(s, six.string_types)
 ```
 
 ----
