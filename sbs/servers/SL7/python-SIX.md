@@ -1,3 +1,17 @@
+## Preamble
+
+To detect **'string'** types, but without using the ``six`` library:
+
+- http://stackoverflow.com/questions/1549801/differences-between-isinstance-and-type-in-python
+- http://stackoverflow.com/questions/4987327/how-do-i-check-if-a-string-is-unicode-or-ascii
+
+```python
+import types
+
+isinstance(s, types.StringTypes)
+```
+
+----
 
 ## Install
 
