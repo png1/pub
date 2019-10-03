@@ -9,9 +9,10 @@ import string
 class EmailAddr(object):
   ## !! NOTE: in order of *increasing* score
   Domains = '''
-  @_XSEED_
   @_STAFF_
+  @_XSEED_
   ~~OTHER~~
+  @_ROSLI_
   @_ALIAS_
   '''.split()
 
